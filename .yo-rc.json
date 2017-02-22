@@ -1,0 +1,11 @@
+{
+  "generator-openapi-repo": {
+    "importExistingSpec": true,
+    "importedSpec": "scheduler.yaml",
+    "name": "Scheduler",
+    "repo": "noizbuster/redocgeneratetest",
+    "splitSpec": false,
+    "samples": true,
+    "installSwaggerUI": true
+  }
+}

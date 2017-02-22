@@ -1,0 +1,703 @@
+swagger: "2.0"
+info:
+  version: "1.0"
+  title: Web Scheduler
+  description: 'TODO: Add Description'
+  license:
+    name: MIT
+    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
+host: example.com
+basePath: /
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /v0/workers:
+    get:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: workers - get list
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /v0/workers
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: workers - get list
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    put:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: workers - advertise (create & update)
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Workers  advertise (create & update)request'
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: PUT
+          uri: /v0/workers
+          headers:
+            Content-Type: application/json
+          body: >-
+            {
+                "hostname": "postman1",
+                "fullname": "postman Worker1",
+                "user": {
+                    "username": "unused1"
+                }
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: workers - advertise (create & update)
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /v0/tasks/:
+    put:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: tasks - advertise (create & update)
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Tasks  advertise (create & update)request'
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: PUT
+          uri: /v0/tasks/
+          headers:
+            Content-Type: application/json
+          body: "{\n	\"func_name\": \"gopher_jobbroker.tasks.addition\",\n	\"task_desription\": \"Addition of two numbers\",\n	\"args\": \n	[\n		{\"type\": \"int\", \"name\": \"a\"}, \n		{\"type\": \"int\", \"name\": \"b\"}\n		],\n	\"task_name\": \"Addition\"\n}"
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: tasks - advertise (create & update)
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /v0/tasks:
+    get:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: tasks - get list
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /v0/tasks
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: tasks - get list
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /v0/jobs:
+    get:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: jobs - get list
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /v0/jobs
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: jobs - get list
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    post:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: Jobs - create (ontime)
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Jobs  create (ontime)request'
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: POST
+          uri: /v0/jobs
+          headers:
+            Content-Type: application/json
+          body: >-
+            {
+                "title": "The Answer",
+                "mode": "ontime",
+                "schedule": {
+                	"start": "2017-02-22T08:35:35Z"
+                },
+                "description": "Answer to the Ultimate Question of Life, the Universe, and Everything",
+                "spec": "586efdd552a0cb73eb76e330",
+                "key": "add.job.test",
+                "args": [{
+                    "name": "a",
+                    "value": 28
+                }, {
+                    "name": "b",
+                    "value": 14
+                }]
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: Jobs - create (ontime)
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /v0/reports:
+    get:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: report - get list (populate)
+      produces:
+      - application/json
+      parameters:
+      - name: populate
+        in: query
+        required: true
+        type: string
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /v0/reports?populate={"path":"job","populate":{"path":"task"}}
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: report - get list (populate)
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    post:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: report - create
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Report  createrequest'
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: POST
+          uri: /v0/reports
+          headers:
+            Content-Type: application/json
+          body: >-
+            {
+            	"state": "RUNNING",
+            	"job": "58106ff4bc9163127be8e877",
+            	"worker": "58106ff4bc9163127be8e872",
+            	"started_at": "2017-01-04T07:15:29.317Z"
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: report - create
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /v0/reports/new:
+    get:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: report - get list of new report (not assigned)
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: GET
+          uri: /v0/reports/new
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: report - get list of new report (not assigned)
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /v0/reports/recommend:
+    post:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: report - get recommend list
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Report  get recommend listrequest'
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: POST
+          uri: /v0/reports/recommend
+          headers:
+            Content-Type: application/json
+          body: >-
+            {
+            	"worker": "58981a229100544ef875cccb"
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: report - get recommend list
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /v0/reports/58982819eea23c7c62151d87/ownership:
+    put:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: report - take ownership (assign)
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Report  take ownership (assign)request'
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: PUT
+          uri: /v0/reports/58982819eea23c7c62151d87/ownership
+          headers:
+            Content-Type: application/json
+          body: '{"worker": "58981a229100544ef875ccca"}'
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: report - take ownership (assign)
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /v0/reports/58982819eea23c7c62151d87:
+    put:
+      description: 'TODO: Add Description'
+      tags:
+      - Misc
+      operationId: report - update
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Report  updaterequest'
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: PUT
+          uri: /v0/reports/58982819eea23c7c62151d87
+          headers:
+            Content-Type: application/json
+          body: "{\n	\"worker\": \"58981a229100544ef875cccb\", \n	\"result\": {\n		\"delivery_path\": \"homebase front_of_booth beside_elevator end_of_map homebase\",\n		\"visited_point\":[\n			{\"point\": \"homebase\", \"time_arrival\":\"2017-02-09T09:29:39.807Z\"},\n			{\"point\": \"front_of_booth\", \"time_arrival\":\"2017-02-09T09:29:59.807Z\"}\n			],\n		\"remained_point\": \"beside_elevator end_of_map homebase\"},\n	\"state\":\"running\"\n}"
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: report - update
+        x-testDescription: 'TODO: Add Description'
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+definitions:
+  Workers  advertise (create & update)request:
+    title: workers - advertise (create & update)Request
+    type: object
+    properties:
+      hostname:
+        type: string
+      fullname:
+        type: string
+      user:
+        $ref: '#/definitions/User'
+    required:
+    - hostname
+    - fullname
+    - user
+  User:
+    title: User
+    type: object
+    properties:
+      username:
+        type: string
+    required:
+    - username
+  Tasks  advertise (create & update)request:
+    title: tasks - advertise (create & update)Request
+    type: object
+    properties:
+      func_name:
+        type: string
+      task_desription:
+        type: string
+      args:
+        type: array
+        items:
+          $ref: '#/definitions/Arg'
+      task_name:
+        type: string
+    required:
+    - func_name
+    - task_desription
+    - args
+    - task_name
+  Arg:
+    title: Arg
+    type: object
+    properties:
+      type:
+        type: string
+      name:
+        type: string
+    required:
+    - type
+    - name
+  Jobs  create (ondemand)request:
+    title: Jobs - create (ondemand)Request
+    type: object
+    properties:
+      title:
+        type: string
+      mode:
+        type: string
+      description:
+        type: string
+      spec:
+        type: string
+      key:
+        type: string
+      args:
+        type: array
+        items:
+          $ref: '#/definitions/Arg5'
+    required:
+    - title
+    - mode
+    - description
+    - spec
+    - key
+    - args
+  Arg5:
+    title: Arg5
+    type: object
+    properties:
+      name:
+        type: string
+      value:
+        type: integer
+        format: int32
+    required:
+    - name
+    - value
+  Jobs  create (ontime)request:
+    title: Jobs - create (ontime)Request
+    type: object
+    properties:
+      title:
+        type: string
+      mode:
+        type: string
+      schedule:
+        $ref: '#/definitions/Schedule'
+      description:
+        type: string
+      spec:
+        type: string
+      key:
+        type: string
+      args:
+        type: array
+        items:
+          $ref: '#/definitions/Arg5'
+    required:
+    - title
+    - mode
+    - schedule
+    - description
+    - spec
+    - key
+    - args
+  Schedule:
+    title: Schedule
+    type: object
+    properties:
+      start:
+        type: string
+    required:
+    - start
+  Report  createrequest:
+    title: report - createRequest
+    type: object
+    properties:
+      state:
+        type: string
+      job:
+        type: string
+      worker:
+        type: string
+      started_at:
+        type: string
+    required:
+    - state
+    - job
+    - worker
+    - started_at
+  Report  get recommend listrequest:
+    title: report - get recommend listRequest
+    type: object
+    properties:
+      worker:
+        type: string
+    required:
+    - worker
+  Report  take ownership (assign)request:
+    title: report - take ownership (assign)Request
+    type: object
+    properties:
+      worker:
+        type: string
+    required:
+    - worker
+  Report  updaterequest:
+    title: report - updateRequest
+    type: object
+    properties:
+      worker:
+        type: string
+      result:
+        $ref: '#/definitions/Result'
+      state:
+        type: string
+    required:
+    - worker
+    - result
+    - state
+  Result:
+    title: Result
+    type: object
+    properties:
+      delivery_path:
+        type: string
+      visited_point:
+        type: array
+        items:
+          $ref: '#/definitions/VisitedPoint'
+      remained_point:
+        type: string
+    required:
+    - delivery_path
+    - visited_point
+    - remained_point
+  VisitedPoint:
+    title: VisitedPoint
+    type: object
+    properties:
+      point:
+        type: string
+      time_arrival:
+        type: string
+    required:
+    - point
+    - time_arrival
